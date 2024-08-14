@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paquetec - Servicios de Traslado de Paquetes</title>
+    <link rel="stylesheet" href="paquetec.css"> 
+    <script src="paquetec.js" defer></script>  
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+</head>
+<body>
+    <header>
+        <h1>Paquetec</h1>
+        <div class="search-container">
+            <input type="text" placeholder="Buscar..." id="searchInput">
+            <button id="searchButton">
+                <i class="fa fa-search"></i> 
+            </button>
+        </div>
+        <nav>
+            <ul class="nav-buttons">
+                <li><a href="#inicio" class="btn-nav">Inicio</a></li>
+                <li><a href="#quienes-somos" class="btn-nav">Quienes Somos</a></li>
+                <li><a href="#servicios" class="btn-nav">Servicios</a></li>
+                <li><a href="#metodos-pago" class="btn-nav">Metodos de Pago</a></li>
+                <li><a href="#contacto" class="btn-nav">Contacto</a></li>
+                <li><a href="#mapa"class="btn-nav">Mapa</a></li>
+                <li><a href="#detalles-paquete"class="btn-nav">Detalles del paquete</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="sideMenu" class="side-menu">
+        <button id="menuToggle" class="menu-toggle">&#9776;</button>
+        <div class="side-menu-content">
+            <a href="#inicio">Inicio</a>
+            <a href="#quienes-somos">Quienes Somos</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#metodos-pago">Metodos de Pago</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#mapa">Mapa</a>
+            <a href="#detalles-paquete">Detalles del paquete</a>
+        </div>
+    </div>
+
+    <section id="inicio">
+        <h2>Bienvenidos a Paquetec</h2>
+        <p>Especialistas en el traslado de paquetes con rapidez y seguridad.</p>
+    </section>
+
+    <section id="quienes-somos">
+        <h2>Quiénes Somos</h2>
+        <p>En Paquetec, somos una empresa dedicada al despacho y traslado de paquetes de manera eficiente, brindando un servicio seguro y confiable.</p>
+    </section>
+
+    <section id="servicios">
+        <h2>Servicios</h2>
+        <ul>
+            <li>Despachar paquete: Fecha máxima de entrega, traslado urgente.</li>
+            <li>Trasladar paquete: Desde tu ubicación al destino deseado.</li>
+        </ul>
+    </section>
+
+    <section id="metodos-pago">
+        <h2>Métodos de Pago</h2>
+        <p>Aceptamos pagos mediante:</p>
+        <ul>
+            <li>Link de pago</li>
+            <li>Tarjeta de crédito (el dinero será retenido hasta que confirmes que el paquete fue entregado con exito)</li>
+            <!--hay que charlar esto si o si-->
+        </ul>
+    </section>
+
+    <section id="mapa">
+        <h2>Areas de cobertura en Argentina</h2>
+        <div id="map" style="height: 500px;"></div>
+    </section> 
+    
+    <section id="detalles-paquete">
+        <h2>Detalles del Paquete</h2>
+        <form>
+            <label for="ancho">Ancho (cm):</label>
+            <input type="number" id="ancho" name="ancho" required>
+    
+            <label for="alto">Alto (cm):</label>
+            <input type="number" id="alto" name="alto" required>
+    
+            <label for="profundidad">Profundidad (cm):</label>
+            <input type="number" id="profundidad" name="profundidad" required>
+    
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" name="peso" required>
+    
+            <label for="direccion-origen">Direccion de origen:</label>
+            <input type="text" id="direccion-origen" name="direccion-origen" required>
+    
+            <label for="direccion-destino">Direccion de destino:</label>
+            <input type="text" id="direccion-destino" name="direccion-destino" required>
+    
+            <label for="fecha-maxima">Fecha maxima de entrega:</label>
+            <input type="date" id="fecha-maxima" name="fecha-maxima" required>
+<!--quiero agregar la imagen del paquete q se vaya adaptando con los datos q se pongan aca, como en el pdf -->
+<!--y hay q agregar un checkbox para saber si es urgente o no-->
+<!--y todo el tema del precio q ni lo hice aun, tmb hay q hacer la parte de los datos de quien manda y quien recibe-->
+<!--y todo lo q falta del pdf q no se q mas falta-->
+    
+            <button type="submit">Enviar detalles</button>
+        </form>
+    </section>    
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+<!--quiero agregar un boton que te suba al comienzo para q sea mas rapido y simple-->
+    <footer>
+        <p>&copy; 2024 Paquetec. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
