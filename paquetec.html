@@ -13,21 +13,13 @@
 <body>
     <header>
         <h1>Paquetec</h1>
-        <div class="search-container">
-            <input type="text" placeholder="Buscar..." id="searchInput">
-            <button id="searchButton">
-                <i class="fa fa-search"></i> 
-            </button>
-        </div>
         <nav>
             <ul class="nav-buttons">
-                <li><a href="#inicio" class="btn-nav">Inicio</a></li>
+                <li><a href="login.html" class="btn-nav">Crear/Iniciar sesion</a></li>
                 <li><a href="#quienes-somos" class="btn-nav">Quienes Somos</a></li>
                 <li><a href="#servicios" class="btn-nav">Servicios</a></li>
                 <li><a href="#metodos-pago" class="btn-nav">Metodos de Pago</a></li>
-                <li><a href="#contacto" class="btn-nav">Contacto</a></li>
-                <li><a href="#mapa"class="btn-nav">Mapa</a></li>
-                <li><a href="#detalles-paquete"class="btn-nav">Detalles del paquete</a></li>
+                <li><a href="#pago-envio"class="btn-nav">Detalles del paquete</a></li>
             </ul>
         </nav>
     </header>
@@ -39,9 +31,7 @@
             <a href="#quienes-somos">Quienes Somos</a>
             <a href="#servicios">Servicios</a>
             <a href="#metodos-pago">Metodos de Pago</a>
-            <a href="#contacto">Contacto</a>
-            <a href="#mapa">Mapa</a>
-            <a href="#detalles-paquete">Detalles del paquete</a>
+            <a href="#pago-envio">Detalles del paquete</a>
         </div>
     </div>
 
@@ -72,59 +62,12 @@
             <!--hay que charlar esto si o si-->
         </ul>
     </section>
-
-    <section id="mapa">
-        <h2>Areas de cobertura en Argentina</h2>
-        <div id="map" style="height: 500px;"></div>
-    </section> 
     
-    <section id="detalles-paquete">
-        <h2>Detalles del Paquete</h2>
-        <form>
-            <label for="ancho">Ancho (cm):</label>
-            <input type="number" id="ancho" name="ancho" required>
-    
-            <label for="alto">Alto (cm):</label>
-            <input type="number" id="alto" name="alto" required>
-    
-            <label for="profundidad">Profundidad (cm):</label>
-            <input type="number" id="profundidad" name="profundidad" required>
-    
-            <label for="peso">Peso (kg):</label>
-            <input type="number" id="peso" name="peso" required>
-    
-            <label for="direccion-origen">Direccion de origen:</label>
-            <input type="text" id="direccion-origen" name="direccion-origen" required>
-    
-            <label for="direccion-destino">Direccion de destino:</label>
-            <input type="text" id="direccion-destino" name="direccion-destino" required>
-    
-            <label for="fecha-maxima">Fecha maxima de entrega:</label>
-            <input type="date" id="fecha-maxima" name="fecha-maxima" required>
-<!--quiero agregar la imagen del paquete q se vaya adaptando con los datos q se pongan aca, como en el pdf -->
-<!--y hay q agregar un checkbox para saber si es urgente o no-->
-<!--y todo el tema del precio q ni lo hice aun, tmb hay q hacer la parte de los datos de quien manda y quien recibe-->
-<!--y todo lo q falta del pdf q no se q mas falta-->
-    
-            <button type="submit">Enviar detalles</button>
-        </form>
+    <section id="pago-envio">
+        <h2>Pago del Envío</h2>
+        <a href="pagoPaquete.html" class="boton-servicio">Contrata nuestros servicios</a>
     </section>    
 
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <form>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" required></textarea>
-
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
 <!--quiero agregar un boton que te suba al comienzo para q sea mas rapido y simple-->
     <footer>
         <p>&copy; 2024 Paquetec. Todos los derechos reservados.</p>
