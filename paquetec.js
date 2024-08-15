@@ -24,10 +24,4 @@ document.addEventListener("DOMContentLoaded", function() {
     menuToggle.addEventListener("click", function() {
         sideMenu.classList.toggle("open");
     });
-
-    const searchButton = document.getElementById("searchButton");
-    searchButton.addEventListener("click", function() {
-        const searchInput = document.getElementById("searchInput").value;
-        alert(`Buscando: ${searchInput}`);
-    });
 });
