@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar con Mercado Pago</title>
+    <link rel="stylesheet" href="medioPago.css">
+    <script src="https://sdk.mercadopago.com/js/v2"></script> <!-- Mercado Pago SDK -->
+</head>
+<body>
+    <section id="pago-envio">
+        <h2>Formulario de Pago</h2>
+        <form id="form-checkout">
+            <div>
+                <label for="form-checkout__cardholderName">Nombre en la Tarjeta</label>
+                <input type="text" id="form-checkout__cardholderName" placeholder="Titular de la tarjeta" required />
+            </div>
+            <div>
+                <label for="form-checkout__cardNumber">Número de Tarjeta</label>
+                <input type="text" id="form-checkout__cardNumber" placeholder="Número de tarjeta" required />
+            </div>
+            <div>
+                <label for="form-checkout__expirationDate">Fecha de Expiración (MM/YY)</label>
+                <input type="text" id="form-checkout__expirationDate" placeholder="MM/YY" required />
+            </div>
+            <div>
+                <label for="form-checkout__securityCode">Código de Seguridad</label>
+                <input type="text" id="form-checkout__securityCode" placeholder="CVV" required />
+            </div>
+            <div>
+                <label for="form-checkout__cardholderEmail">Email</label>
+                <input type="email" id="form-checkout__cardholderEmail" placeholder="Email" required />
+            </div>
+            <button type="submit" id="form-checkout__submit">Pagar</button>
+        </form>
+    </section>
+
+    <script src="medioPago.js"></script>
+</body>
+</html>

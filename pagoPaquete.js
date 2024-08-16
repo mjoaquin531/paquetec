@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
     var map = L.map('map').setView([-38.4161, -63.6167], 5);
+    
+    // Capa de OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    var originMarker, destinationMarker;
+    var originMarker, destinationMarker, routeLine;
 
     function geocodeAddress(address, callback) {
         fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json&limit=1`)
@@ -22,37 +24,49 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
-    document.getElementById("form-envio").addEventListener("submit", function(event) {
-        event.preventDefault();
+    function calcularRuta(latLngOrigen, latLngDestino) {
+        const url = `https://router.project-osrm.org/route/v1/driving/${latLngOrigen[1]},${latLngOrigen[0]};${latLngDestino[1]},${latLngDestino[0]}?geometries=geojson&overview=full`;
 
-        const origen = document.getElementById("direccion-origen").value;
-        const destino = document.getElementById("direccion-destino").value;
-        const esPrioritario = document.getElementById("prioritario").checked;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (routeLine) map.removeLayer(routeLine);
+
+                // Trazar la ruta real basada en la respuesta de OSRM
+                const routeCoordinates = data.routes[0].geometry.coordinates.map(coord => [coord[1], coord[0]]);
+                routeLine = L.polyline(routeCoordinates, { color: 'blue' }).addTo(map);
+                map.fitBounds(routeLine.getBounds());
+            })
+            .catch(error => {
+                console.error("Error al calcular la ruta:", error);
+            });
+    }
+
+    document.getElementById("mostrar-mapa").addEventListener("click", function() {
+        const calle1 = document.getElementById("calle1").value;
+        const calle2 = document.getElementById("calle2").value;
+        const altura = document.getElementById("altura").value;
+        const barrio = document.getElementById("barrio").value;
+        const direccionOrigen = `${calle1} ${calle2} ${altura} ${barrio}`;
         
-        let precio = calcularPrecio();
-        if (esPrioritario) {
-            precio *= 1.1; // Aumentar el precio en un 10% si es prioritario
-        }
-        document.getElementById("precio").textContent = precio.toFixed(2);
+        const calle3 = document.getElementById("calle3").value;
+        const calle4 = document.getElementById("calle4").value;
+        const altura1 = document.getElementById("altura1").value;
+        const barrio1 = document.getElementById("barrio1").value;
+        const direccionDestino = `${calle3} ${calle4} ${altura1} ${barrio1}`;
 
-        geocodeAddress(origen, function(latLng) {
+        geocodeAddress(direccionOrigen, function(latLngOrigen) {
             if (originMarker) map.removeLayer(originMarker);
-            originMarker = L.marker(latLng).addTo(map).bindPopup('Origen: ' + origen).openPopup();
-            map.setView(latLng, 10);
-        });
+            originMarker = L.marker(latLngOrigen).addTo(map).bindPopup('Origen: ' + direccionOrigen).openPopup();
+            map.setView(latLngOrigen, 10);
+            
+            geocodeAddress(direccionDestino, function(latLngDestino) {
+                if (destinationMarker) map.removeLayer(destinationMarker);
+                destinationMarker = L.marker(latLngDestino).addTo(map).bindPopup('Destino: ' + direccionDestino).openPopup();
 
-        geocodeAddress(destino, function(latLng) {
-            if (destinationMarker) map.removeLayer(destinationMarker);
-            destinationMarker = L.marker(latLng).addTo(map).bindPopup('Destino: ' + destino).openPopup();
+                // Calcular la ruta real entre origen y destino
+                calcularRuta(latLngOrigen, latLngDestino);
+            });
         });
     });
-
-    function calcularPrecio() {
-        const ancho = parseFloat(document.getElementById("ancho").value);
-        const alto = parseFloat(document.getElementById("alto").value);
-        const profundidad = parseFloat(document.getElementById("profundidad").value);
-        const peso = parseFloat(document.getElementById("peso").value);
-
-        return (ancho * alto * profundidad) * peso * 0.001;
-    }
 });

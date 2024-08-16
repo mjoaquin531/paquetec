@@ -30,14 +30,44 @@
 <section id="mapa-direcciones">
     <h2>Direcciones y Mapa</h2>
     <form id="form-direccion">
-        <label for="direccion-envio">Dirección de Envío:</label>
-        <input type="text" id="direccion-envio" name="direccion-envio" required>
-        <label for="direccion-destino">Dirección de Destino:</label>
-        <input type="text" id="direccion-destino" name="direccion-destino" required>
+        <label for="provincia-origen">Provincia del remitente:</label>
+        <select id="provincia-origen" name="provincia-origen" required>
+            <!-- Opciones de provincias -->
+            <option value="provincia1">Buenos Aires</option>
+            <option value="provincia2">Provincia 2</option>
+        </select>
+        
+        <label for="calle1">Calle 1: </label>
+        <input type="text" id="calle1" name="calle1" required>
+        <label for="calle2">Calle 2: </label>
+        <input type="text" id="calle2" name="calle2" required>
+        <label for="altura">Altura: </label>
+        <input type="text" id="altura" name="altura" required>
+        <label for="barrio">Barrio: </label>
+        <input type="text" id="barrio" name="barrio" required>
+        
+        <label for="provincia-destino">Provincia del destinatario:</label>
+        <select id="provincia-destino" name="provincia-destino" required>
+            <!-- Opciones de provincias -->
+            <option value="provincia1">Provincia 1</option>
+            <option value="provincia2">Cordoba</option>
+        </select>
+        
+        <label for="calle3">Calle 1: </label>
+        <input type="text" id="calle3" name="calle3" required>
+        <label for="calle4">Calle 2: </label>
+        <input type="text" id="calle4" name="calle4" required>
+        <label for="altura1">Altura: </label>
+        <input type="text" id="altura1" name="altura1" required>
+        <label for="barrio1">Barrio: </label>
+        <input type="text" id="barrio1" name="barrio1" required>
+        
         <button type="button" id="mostrar-mapa">Mostrar en Mapa</button>
     </form>
-    <div id="map"></div>
+    <div id="map" style="height: 400px;"></div>
 </section>
+
+
 
 <section id="prioritario">
 <label for="prioritario">
@@ -57,7 +87,10 @@
     <label for="foto-exterior">Subir Foto del Exterior:</label>
     <input type="file" id="foto-exterior" name="foto-exterior" accept="image/*">
 </section>
-<button type="submit">Enviar Detalles</button>
+
+<form onsubmit="window.location.href='medioPago.html'; return false;">
+    <button type="submit">Ir a Medio de Pago</button>
+</form>
 
 
 <script src="pagoPaquete.js"></script>
