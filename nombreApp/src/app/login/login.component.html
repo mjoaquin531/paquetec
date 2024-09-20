@@ -1,5 +1,60 @@
-<div>
-    <form>
-        <input type="text" placeholder="Ingresa tu nombre"/>
-    </form>
+<div class="fondo">
+    <div class="container">
+        <div class="form-container" id="login-form">
+            <h2>Iniciar Sesión</h2>
+            <form id="login">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="login-email" placeholder="Ingresa tu correo" required>
+                <label for="password">Contraseña</label>
+                <input type="password" id="login-password" placeholder="Ingresa tu contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+            <p>¿No tienes una cuenta? <a href="#" id="switch-to-register">Regístrate aquí</a></p>
+        </div>
+    
+        <div class="form-container" id="register-form" style="display:none;">
+            <h2>Crear Cuenta</h2>
+            <form id="register">
+                <label for="name">Nombre Completo</label>
+                <input type="text" id="register-name" placeholder="Ingresa tu nombre completo" required>
+    
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="register-email" placeholder="Ingresa tu correo" required>
+    
+                <label for="password">Contraseña</label>
+                <input type="password" id="register-password" placeholder="Crea una contraseña" required>
+    
+                <label for="confirm-password">Confirmar Contraseña</label>
+                <input type="password" id="confirm-password" placeholder="Confirma tu contraseña" required>
+    
+                <label for="birthdate">Fecha de Nacimiento</label>
+                <input type="date" id="register-birthdate" required>
+    
+                <label for="phone">Número de Teléfono</label>
+                <input type="tel" id="register-phone" placeholder="Ingresa tu número de teléfono" required>
+    
+                <label for="gender">Género (Opcional)</label>
+                <select id="register-gender">
+                    <option value="">Seleccionar</option>
+                    <option value="male">Masculino</option>
+                    <option value="female">Femenino</option>
+                    <option value="other">no hay otros mamerto</option>
+                </select>
+    
+                <label for="country">País</label>
+                <input type="text" id="register-country" placeholder="Ingresa tu país" required>
+    
+                <label for="address">Dirección</label>
+                <input type="text" id="register-address" placeholder="Ingresa tu dirección" required>
+    
+                <label>
+                    <input type="checkbox" id="terms" required>
+                    Acepto los <a href="terminosYcondiciones.html">términos y condiciones</a>
+                </label>
+    
+                <button type="submit">Registrarse</button>
+            </form>
+            <p>¿Ya tienes una cuenta? <a href="#" id="switch-to-login">Inicia sesión aquí</a></p>
+        </div>
+    </div>
 </div>

@@ -1,0 +1,80 @@
+<section id="dimension-paquete">
+    <h2>Dimensiones del Paquete</h2>
+    <form id="form-dimensiones">
+        <label for="largo">Largo (cm):</label>
+        <input type="number" id="largo" name="largo" required>
+        <label for="ancho">Ancho (cm):</label>
+        <input type="number" id="ancho" name="ancho" required>
+        <label for="alto">Alto (cm):</label>
+        <input type="number" id="alto" name="alto" required>
+        <label for="peso">peso (kg):</label>
+        <input type="number" id="peso" name="peso" required>
+        <button type="button" id="calcular-dimension">Ver Representación</button>
+    </form>
+    <div id="paquete-animado"></div>
+</section>
+
+<section id="mapa-direcciones">
+    <h2>Direcciones y Mapa</h2>
+    <form id="form-direccion">
+        <label for="provincia-origen">Provincia del remitente:</label>
+        <select id="provincia-origen" name="provincia-origen" required>
+            <!-- Opciones de provincias -->
+            <option value="provincia1">Buenos Aires</option>
+            <option value="provincia2">Provincia 2</option>
+        </select>
+        
+        <label for="calle1">Calle 1: </label>
+        <input type="text" id="calle1" name="calle1" required>
+        <label for="calle2">Calle 2: </label>
+        <input type="text" id="calle2" name="calle2" required>
+        <label for="altura">Altura: </label>
+        <input type="text" id="altura" name="altura" required>
+        <label for="barrio">Barrio: </label>
+        <input type="text" id="barrio" name="barrio" required>
+        
+        <label for="provincia-destino">Provincia del destinatario:</label>
+        <select id="provincia-destino" name="provincia-destino" required>
+            <!-- Opciones de provincias -->
+            <option value="provincia1">Provincia 1</option>
+            <option value="provincia2">Cordoba</option>
+        </select>
+        
+        <label for="calle3">Calle 1: </label>
+        <input type="text" id="calle3" name="calle3" required>
+        <label for="calle4">Calle 2: </label>
+        <input type="text" id="calle4" name="calle4" required>
+        <label for="altura1">Altura: </label>
+        <input type="text" id="altura1" name="altura1" required>
+        <label for="barrio1">Barrio: </label>
+        <input type="text" id="barrio1" name="barrio1" required>
+        
+        <button type="button" id="mostrar-mapa">Mostrar en Mapa</button>
+    </form>
+    <div id="map" style="height: 400px;"></div>
+</section>
+
+
+
+<section id="prioritario">
+<label for="prioritario">
+    <input type="checkbox" id="prioritario" name="prioritario">
+    Envío Prioritario (Mayor Visibilidad y pero Costo)
+</label>
+</section>
+
+<section id="precio-fotos">
+    <div id="precio-estimado">
+        <h3>Precio Estimado: $<span id="precio">0.00</span></h3>
+    </div>
+
+    <label for="foto-interior">Subir Foto del Interior:</label>
+    <input type="file" id="foto-interior" name="foto-interior" accept="image/*">
+
+    <label for="foto-exterior">Subir Foto del Exterior:</label>
+    <input type="file" id="foto-exterior" name="foto-exterior" accept="image/*">
+</section>
+
+<form routerLink="/pago">
+    <button type="submit">Ir a Medio de Pago</button>
+</form>
